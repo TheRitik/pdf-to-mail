@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracted Emails</title>
+</head>
+<body>
+    <h2>Extracted Emails</h2>
+    {% if emails %}
+        <ul>
+            {% for email in emails %}
+                <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+        <form method="get" action="/download/{{ csv_path }}">
+            <button type="submit">Download Emails as CSV</button>
+        </form>
+    {% else %}
+        <p>No emails found in the uploaded PDF.</p>
+    {% endif %}
+</body>
+</html>
